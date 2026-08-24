@@ -4,7 +4,7 @@
 
 ## 動作環境
 
-- Ruby 4.0.5
+- Ruby 4.0.5（標準環境。`.ruby-version`をSSOTとします）
 - Ruby on Rails 8.1.3
 - Bundler 4.0.10
 - PostgreSQL 18.4
@@ -50,6 +50,8 @@ bin/check step5
 ```
 
 対象Stepのコマンドが成功し、push後のGitHub Actionsが成功すれば、そのStepは完了です。評価結果はGitHub ActionsのSummaryにも表示されます。
+
+標準環境は`.ruby-version`に指定されたRuby 4.0.5です。自己評価ではパッチバージョン差を許容し、Ruby 4.0系（4.0.0以上、4.1.0未満）で実行できます。
 
 評価対象と参考・任意項目の区分は、[万葉課題の評価区分](docs/evaluation_criteria.md)を参照してください。
 

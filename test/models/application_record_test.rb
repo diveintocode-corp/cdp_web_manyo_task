@@ -2,7 +2,9 @@ require "test_helper"
 
 class ApplicationRecordTest < ActiveSupport::TestCase
   test "uses the target Ruby and Rails versions" do
-    assert_equal "4.0.5", RUBY_VERSION
+    expected_ruby_version = Rails.root.join(".ruby-version").read.strip
+
+    assert_equal expected_ruby_version, RUBY_VERSION
     assert_equal "8.1.3", Rails.version
   end
 
