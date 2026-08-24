@@ -28,6 +28,14 @@ $1"
   exit 2
 }
 
+ruby_version_supported() {
+  ruby -rrubygems -e '
+    requirement = Gem::Requirement.new(">= 4.0.0", "< 4.1.0")
+    version = Gem::Version.new(ARGV.fetch(0))
+    exit(requirement.satisfied_by?(version) ? 0 : 1)
+  ' "$1"
+}
+
 case "$STEP" in
   step1|step2|step3|step4|step5)
     ;;
@@ -46,8 +54,8 @@ command -v ruby >/dev/null 2>&1 || fail_check "Rubyをインストールして�
 command -v bundle >/dev/null 2>&1 || fail_check "Bundlerをインストールしてください。"
 
 CURRENT_RUBY_VERSION="$(ruby -e 'print RUBY_VERSION')"
-if [[ "$CURRENT_RUBY_VERSION" != '4.0.5' ]]; then
-  fail_check "Ruby 4.0.5を使用してください。現在のバージョンは${CURRENT_RUBY_VERSION}です。"
+if ! ruby_version_supported "$CURRENT_RUBY_VERSION"; then
+  fail_check "Ruby 4.0系を使用してください。現在のバージョンは${CURRENT_RUBY_VERSION}です。"
 fi
 
 if ! bundle check; then
