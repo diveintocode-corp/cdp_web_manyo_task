@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop and get a debugger console
   gem 'byebug', platforms: [:mri, :windows]
 end
 
@@ -43,11 +43,9 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
+  # Adds support for Capybara system testing and Selenium Manager-managed Chrome drivers.
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem 'selenium-webdriver', '4.47.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
