@@ -10,6 +10,7 @@
 - PostgreSQL 18.4
 - Node.js 24.18.0
 - Yarn 1.22.x
+- Selenium WebDriver 4.47.0（ChromeDriverはSelenium Managerで解決します）
 
 ## セットアップ
 
@@ -36,6 +37,8 @@ RAILS_ENV=test bundle exec rails db:prepare
 bundle exec rails test
 bundle exec rails test:system
 ```
+
+ブラウザを使うSystem Specでは、`selenium-webdriver`に含まれるSelenium Managerを使用して、実行環境のChromeに対応するdriverを解決します。旧`webdrivers` gemには依存しません。
 
 ## 課題の自己評価
 
