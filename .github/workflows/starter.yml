@@ -50,6 +50,11 @@ jobs:
       - name: Install JavaScript dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Show browser test versions
+        run: |
+          google-chrome --version
+          bundle exec ruby -e 'require "selenium-webdriver"; puts "selenium-webdriver #{Selenium::WebDriver::VERSION}"'
+
       - name: Prepare database
         run: bundle exec rails db:prepare
 
